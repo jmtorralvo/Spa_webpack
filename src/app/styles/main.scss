@@ -1,0 +1,12 @@
+@import '../../../node_modules/material-design-lite/src/material-design-lite';
+@import './vars';
+
+
+#detail-component{
+  .detail-img{
+    border: 1px solid green;
+    height: 600px;
+    width: 850px
+  }
+}
+

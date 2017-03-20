@@ -1,0 +1,48 @@
+{
+  "name": "spa_ex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Jose Manuel Torralvo Moyano",
+  "license": "ISC",
+  "scripts": {
+    "start": "concurrently \"npm run compile\" \"npm run compile:w\"",
+    "prestart": "npm run clean",
+    "clean": "rimraf dist",
+    "compile": "concurrently \"npm run copy\" \"npm run bundle\"",
+    "compile:w": "concurrently \"npm run bundle:w\" \"npm run watch\"",
+    "bundle": "webpack webpack.config.js --watch --hot --inline",
+    "bundle:w": "webpack-dev-server --watch --hot --inline --watch",
+    "copy": "cpy \"./**/*.html\" \"../dist\" --cwd=src --parents",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "copy": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html,ttf"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.8",
+    "concurrently": "^3.4.0",
+    "cpy-cli": "^1.0.1",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-loader": "^0.4.5",
+    "mustache": "^2.3.0",
+    "mustache-loader": "^0.4.1",
+    "node-sass": "^4.5.0",
+    "resolve-url": "^0.2.1",
+    "sass-loader": "^6.0.3",
+    "ts-loader": "^2.0.2",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "material-design-lite": "^1.3.0",
+    "prouter": "^2.1.6"
+  }
+}
