@@ -1,13 +1,14 @@
 
 export default class Detail {
+
     constructor() {
-        
+
     }
 
-    render(detail){
+    render(detail){ 
       let detailTmpl = require("./detail.tmpl.html"),
-          /*view = document.getElementById('main-view')
-                 .innerHTML = albumListTmpl({ photos:photos });*/
+          view = document.getElementById('main-view')
+                 .innerHTML = detailTmpl({ detail:detail });
     }
 }
 
